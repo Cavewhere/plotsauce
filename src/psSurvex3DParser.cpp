@@ -69,6 +69,8 @@ void psSurvex3DParser::parse(QString filename) {
                 stationLookup.addStation(currentStation);
             }
 
+            QString stationName = QString::fromLocal8Bit(survey->label);
+
             n_traverses = n_surface_traverses = 0;
             pending_move = true;
             prev_pt = pt;
@@ -181,14 +183,17 @@ void psSurvex3DParser::parse(QString filename) {
 //            m_Labels.push_back(label);
 
             QVector3D position(pt.x, pt.y, pt.z);
-            currentStation = stationLookup.findStation(position);
+            QString stationName = QString::fromLocal8Bit(survey->label);
+            currentStation = stationLookup.findStation(stationName);
+
             if(currentStation == NULL) {
                 currentStation = new psStation();
                 currentStation->setPosition(position);
-            }
-            currentStation->setName(QString::fromLocal8Bit(survey->label));
-            stationLookup.addStation(currentStation);
+                currentStation->setName(stationName);
+                stationLookup.addStation(currentStation);
+            } else {
 
+            }
             break;
         }
 
