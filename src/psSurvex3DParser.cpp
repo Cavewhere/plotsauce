@@ -20,7 +20,7 @@ psSurvex3DParser::psSurvex3DParser()
 
 void psSurvex3DParser::parse(QString filename) {
     //Open the survey from the file
-    img* survey = img_open_survey((const char*)filename.toAscii(), NULL);
+    img* survey = img_open_survey((const char*)filename.toLocal8Bit(), NULL);
     if(survey == NULL) {
         //Error couldn't open file
         qWarning() << "PlotSauce couldn't open " << filename;

@@ -34,7 +34,7 @@ void psXMLWriter::write(QString outputFile) {
 
     QByteArray fullDocumentAsXML = Document.toByteArray();
 
-    gzFile zippedFile = gzopen(outputFile.toAscii(), "w"); //Write with level 9 huffman
+    gzFile zippedFile = gzopen(outputFile.toLocal8Bit(), "w"); //Write with level 9 huffman
     gzwrite(zippedFile, fullDocumentAsXML.constData(), fullDocumentAsXML.length());
     gzclose(zippedFile);
 
