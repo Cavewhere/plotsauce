@@ -8,9 +8,9 @@ CppApplication {
 
     Depends { name: "Qt"; submodules: ["core", "xml", "gui"] }
     Depends { name: "cavern-3dReader" }
+    Depends { name: "z" }
 
     cpp.includePaths: ["src"]
-    cpp.dynamicLibraries: ["z"]
 
     Group {
         fileTagsFilter: ["application"]
