@@ -1,3 +1,4 @@
+
 import qbs 1.0
 
 CppApplication {
@@ -12,6 +13,8 @@ CppApplication {
 
     cpp.cxxLanguageVersion: (Qt.core.versionMajor >= 5 && Qt.core.versionMinor >= 7 ? "c++11" : "c++98");
     cpp.includePaths: ["src"]
+
+    qbs.installPrefix: ""
 
     Group {
         fileTagsFilter: ["application"]
